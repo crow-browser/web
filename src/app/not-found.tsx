@@ -3,11 +3,16 @@ import GlobalFooter from "@/components/section/global/global-footer";
 import GlobalHeader from "@/components/section/global/global-header";
 import { useTranslation } from "@/utils/localization/clinet";
 import { Heading, Text, Container, Button } from "@radix-ui/themes";
+import { useEffect, useState } from "react";
 
 export default function NotFound() {
-  const path = window.location.pathname;
+  const [path, setPath] = useState("");
   const lang = path.split("/")[1] as "en" | "ko";
   const { t } = useTranslation(lang, "not-found");
+
+  useEffect(() => {
+    setPath(window.location.pathname);
+  }, []);
 
   return (
     <>

@@ -1,4 +1,16 @@
 {
+  "header": {
+    "browser": {
+      "title": "브라우저"
+    },
+    "products": {
+      "title": "제품"
+    },
+    "teammates": {
+      "title": "개발자"
+    },
+    "download": "크로우 브라우저 다운로드"
+  },
   "footer": {
     "products": {
       "title": "제품",

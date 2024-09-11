@@ -36,7 +36,7 @@ export default function GlobalFooter({ lang }: { lang: "en" | "ko" }) {
                 <Link href="/products/seed">{t("footer.products.seed")}</Link>
               </li>
               <li>
-                <Link href="https://odinus.shop/">
+                <Link href="https://odinus.shop/" target="_blank">
                   {t("footer.products.odinus")}
                 </Link>
               </li>
@@ -55,10 +55,10 @@ export default function GlobalFooter({ lang }: { lang: "en" | "ko" }) {
           <div className="md:w-fit">
             <p>Follow us on</p>
             <div className="mt-3 flex gap-2">
-              <Link href="https://github.com/crow-browser">
+              <Link href="https://github.com/crow-browser" target="_blank">
                 <GitHubLogoIcon width={20} height={20} />
               </Link>
-              <Link href="https://discord.gg/7jsR5zaRMP">
+              <Link href="https://discord.gg/7jsR5zaRMP" target="_blank">
                 <DiscordLogoIcon width={20} height={20} />
               </Link>
             </div>

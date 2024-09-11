@@ -4,11 +4,14 @@ import Image from "next/image";
 import logo from "@/assets/brand/logo.png";
 import { Button, DropdownMenu, Link, Separator } from "@radix-ui/themes";
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "@/utils/localization/clinet";
 
 export default function GlobalHeader({ lang }: { lang: "en" | "ko" }) {
   const [scrolled, setScrolled] = useState(false);
   const [headerSize, setHeaderSize] = useState(0);
   const headerRef = useRef<HTMLDivElement>(null);
+
+  const { t } = useTranslation(lang, "global");
 
   useEffect(() => {
     console.log(lang);
@@ -24,6 +27,10 @@ export default function GlobalHeader({ lang }: { lang: "en" | "ko" }) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    setHeaderSize(headerRef.current?.offsetHeight || 0);
+  }, [headerRef.current?.offsetHeight]);
 
   return (
     <>
@@ -45,7 +52,7 @@ export default function GlobalHeader({ lang }: { lang: "en" | "ko" }) {
             <DropdownMenu.Root>
               <DropdownMenu.Trigger>
                 <Button variant="ghost">
-                  Browser
+                  {t("header.browser.title")}
                   <DropdownMenu.TriggerIcon />
                 </Button>
               </DropdownMenu.Trigger>
@@ -54,7 +61,7 @@ export default function GlobalHeader({ lang }: { lang: "en" | "ko" }) {
             <DropdownMenu.Root>
               <DropdownMenu.Trigger>
                 <Button variant="ghost">
-                  Products
+                  {t("header.products.title")}
                   <DropdownMenu.TriggerIcon />
                 </Button>
               </DropdownMenu.Trigger>
@@ -63,7 +70,7 @@ export default function GlobalHeader({ lang }: { lang: "en" | "ko" }) {
             <DropdownMenu.Root>
               <DropdownMenu.Trigger>
                 <Button variant="ghost">
-                  Teammates
+                  {t("header.teammates.title")}
                   <DropdownMenu.TriggerIcon />
                 </Button>
               </DropdownMenu.Trigger>
@@ -76,7 +83,7 @@ export default function GlobalHeader({ lang }: { lang: "en" | "ko" }) {
                 window.location.href = "/products/browser";
               }}
             >
-              Download Crow Browser
+              {t("header.download")}
             </Button>
           </div>
         </div>

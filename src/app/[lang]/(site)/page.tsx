@@ -1,8 +1,22 @@
 import ThemeChanger from "@/components/ui/theme-changer";
+import { createTranslation } from "@/utils/localization/server";
 import { ArrowRightIcon, CodeIcon, DownloadIcon } from "@radix-ui/react-icons";
 import { Button, Heading, Separator } from "@radix-ui/themes";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { lang: "en" | "ko" };
+}): Promise<Metadata> {
+  const { t } = await createTranslation(params.lang, "home");
+
+  return {
+    title: t("metadata.title"),
+  };
+}
 
 export default function Home() {
   return (
@@ -50,7 +64,6 @@ export default function Home() {
                   />
                 </div>
               </Link>
-              <Separator my={"3"} className="w-full mt-5" />
             </div>
             <div className="bg-highlight-background p-10 rounded-md overflow-hidden lg:w-1/3">
               <Link
@@ -68,7 +81,6 @@ export default function Home() {
                   />
                 </div>
               </Link>
-              <Separator my={"3"} className="w-full mt-5" />
             </div>
             <div className="bg-highlight-background p-10 rounded-md overflow-hidden lg:w-1/3">
               <Link
@@ -86,7 +98,6 @@ export default function Home() {
                   />
                 </div>
               </Link>
-              <Separator my={"3"} className="w-full mt-5" />
             </div>
           </div>
         </div>
