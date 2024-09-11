@@ -1,0 +1,16 @@
+{
+  "footer": {
+    "products": {
+      "title": "제품",
+      "crow_browser": "크로우 브라우저",
+      "seed": "시드 빌더",
+      "odinus": "오딘 스토어"
+    },
+    "resources": {
+      "title": "자료"
+    },
+    "developers": {
+      "title": "개발자"
+    }
+  }
+}
